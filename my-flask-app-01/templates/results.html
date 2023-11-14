@@ -1,0 +1,29 @@
+<!doctype html>
+<head>
+    <title>IaC Code Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<html>
+   <body>
+     <main>
+        <div class="px-4 py-3 my-2 text-center">
+            <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/logo.PNG') }}" alt="App Logo" width="192" height="192"/>
+            <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+            <h1 class="display-6 fw-bold">Based on the following prompt:</h1>
+            <p>{{prompt}}</p>
+            <p class="fs-5">
+                Here is the code: 
+            </p>
+
+              <div class="container mt-5"><div class="row"><div class="col-md-8"><pre class="bg-light p-3 border rounded text-left"><code>
+                
+              {{code}}
+
+            </code></pre></div></div></div>
+        
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg px-4 gap-3">Back to prompt</a>
+          </div>
+     </main>      
+   </body>
+</html>

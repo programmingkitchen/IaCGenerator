@@ -1,0 +1,31 @@
+resource "azurerm_linux_virtual_machine" "main" {
+  name                    = "${var.vm_name}"
+  location                = "${var.location}"
+  resource_group_name     = "${var.rg_name}"
+  size                            = "Standard_B1s"
+  #size                            = "Standard_DS1_v2"
+  network_interface_ids = [
+    azurerm_network_interface.main.id,
+  ]
+
+  source_image_id = "<LINK TO GOLDEN IMAGE>"
+
+  computer_name                   = "${var.vm_name}"
+  admin_username                  = "${var.username}"
+  disable_password_authentication = true
+
+  admin_ssh_key {
+    username = "${var.username}"
+    public_key = "${var.public_key}"
+    #public_key = tls_private_key.example_ssh.public_key_openssh
+  }
+
+  os_disk {
+    storage_account_type = "Standard_LRS"
+    caching              = "ReadWrite"
+  }
+  tags = var.tags
+}
+
+
+
