@@ -1,5 +1,6 @@
 # Hackathon
 
+Standard D16as v4 (16 vcpus, 64 GiB memory)
 
 ## Git commands
 
